@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: Amanda Chappell
-Donate link: http://amplifiedprojects.com
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=amanda%40amplifiedprojects%2ecom&lc=US&item_name=Amplified%20Projects&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: subpages
 Requires at least: 2.7.1
 Tested up to: 2.7.1
