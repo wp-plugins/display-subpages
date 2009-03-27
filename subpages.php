@@ -3,7 +3,7 @@
 Plugin Name: SubPages
 Plugin URI: http://amplifiedprojects.com/projects/subpages-wordpress-widget/
 Description: A plugin to display the current page's subpages. Nothing is displayed if there are no subpages
-Version 1.0
+Version: 1.0
 Author: Amanda Chappell
 Author URI: http://amplifiedprojects.com
 */
