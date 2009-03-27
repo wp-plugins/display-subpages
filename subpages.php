@@ -3,7 +3,7 @@
 Plugin Name: SubPages
 Plugin URI: http://amplifiedprojects.com/projects/subpages-wordpress-widget/
 Description: A plugin to display the current page's subpages. Nothing is displayed if there are no subpages
-Version 1.0
+Version 1.1
 Author: Amanda Chappell
 Author URI: http://amplifiedprojects.com
 */
@@ -46,7 +46,7 @@ function widget_SubPages($args)
 <ul>
 <?php
 	
-	$output = wp_list_pages ('echo=0&child_of=' . $thePostID . '&title_li=');
+	$output = wp_list_pages ('echo=0&child_of=' . $thePostID . '&title_li=&depth='.$options['depth']);
   	echo $output;
 ?>
 </ul><?php
@@ -62,18 +62,58 @@ function subPages_control(){
 	$options = get_option("widget_subpages");
 
 	if(!is_array($options)){
-		$options = array('title' => 'SubPages');
+		$options = array('title' => 'SubPages', 'depth' => '1');
 	}
 	if($_POST['subpages-Submit']){
 		$options['title'] = htmlspecialchars($_POST['subpages-WidgetTitle']);
+		$options['depth'] = htmlspecialchars($_POST['subpages-WidgetDepth']);
 		update_option("widget_subpages",$options);
 	}
 
 	echo '<p>
 			<label for="subpages-WidgetTitle">Widget Title: </label>
-			<input type="text" id="ravelryPB-WidgetTitle" name="subpages-WidgetTitle" value="';
+			<input type="text" id="subpages-WidgetTitle" name="subpages-WidgetTitle" value="';
 	echo $options['title'];
 	echo '" />
+			<input type="hidden" id="subpages-Submit" name="subpages-Submit" value="1" />
+		</p>';
+	echo '<p>
+			<label for="subpages-WidgetTitle">Widget Depth: </label>
+			<select id="subpages-WidgetDepth" name="subpages-WidgetDepth">
+			<option value="0" ';
+	if($options['depth']=='0'){ echo 'selected';}
+	echo '>0</option>
+			<option value="1" ';
+	if($options['depth']=='1'){ echo 'selected';}
+	echo '>1</option>
+			<option value="2"';
+	if($options['depth']=='2'){ echo 'selected';}
+	echo '>2</option>
+			<option value="3"';
+	if($options['depth']=='3'){ echo 'selected';}
+	echo '>3</option>
+			<option value="4"';
+	if($options['depth']=='4'){ echo 'selected';}
+	echo '>4</option>
+			<option value="5"';
+	if($options['depth']=='5'){ echo 'selected';}
+	echo '>5</option>
+			<option value="6"';
+	if($options['depth']=='6'){ echo 'selected';}
+	echo '>6</option>
+			<option value="7"';
+	if($options['depth']=='7'){ echo 'selected';}
+	echo '>7</option>
+			<option value="8"';
+	if($options['depth']=='8'){ echo 'selected';}
+	echo '>8</option>
+			<option value="9"';
+	if($options['depth']=='9'){ echo 'selected';}
+	echo '>9</option>
+			<option value="10"';
+	if($options['depth']=='10'){ echo 'selected';}
+	echo '>10</option>
+			</select>
 			<input type="hidden" id="subpages-Submit" name="subpages-Submit" value="1" />
 		</p>';
 }
