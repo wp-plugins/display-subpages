@@ -3,7 +3,7 @@
 Plugin Name: SubPages
 Plugin URI: http://amplifiedprojects.com/projects/subpages-wordpress-widget/
 Description: A plugin to display the current page's subpages. Nothing is displayed if there are no subpages
-Version: 1.1
+Version: 1.2
 Author: Amanda Chappell
 Author URI: http://amplifiedprojects.com
 */
@@ -33,12 +33,13 @@ function widget_SubPages($args)
 
 	$options = get_option("widget_subpages");
 
-	echo $before_widget;
+	
 	
 	global $wp_query;
 	$thePostID = $wp_query->post->ID;
 	 $children = wp_list_pages('echo=0&title_li=&child_of='.$thePostID);
 	if($children){
+	echo $before_widget;
 	echo $before_title;
 	echo $options['title'];
 	echo $after_title;
@@ -50,12 +51,13 @@ function widget_SubPages($args)
   	echo $output;
 ?>
 </ul><?php
+	echo $after_widget;
 	}
 	
 	
 	?>
 <?php
-	echo $after_widget;
+	
 }
 
 function subPages_control(){

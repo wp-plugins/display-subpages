@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=amand
 Tags: subpages
 Requires at least: 2.7.1
 Tested up to: 2.7.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 A widget to display the subpages of the current page. You can now choose the depth of children to display up to depth 10.
 
@@ -17,6 +17,7 @@ You can now choose the depth of children to display up to depth 10.
 Choosing 0 will show all depths
 Choosing 1 will show just the top pages
 Choosing 2 and so on will show pages just to the chosen depth.
+=Version 1.2 Changes= This makes sure that if you have no subpages, not space is left for the widget on that page.
 
 
 == Installation ==
