@@ -3,12 +3,12 @@
 Plugin Name: SubPages
 Plugin URI: http://amplifiedprojects.com/projects/subpages-wordpress-widget/
 Description: A plugin to display the current page's subpages. Nothing is displayed if there are no subpages
-Version: 1.2
+Version: 1.3
 Author: Amanda Chappell
 Author URI: http://amplifiedprojects.com
 */
 
-/*  Copyright 2009  Amanda Chappell  (email : amanda@amplifiedprojects.com)
+/*  Copyright 2010  Amanda Chappell  (email : amanda@amplifiedprojects.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -52,12 +52,39 @@ function widget_SubPages($args)
 ?>
 </ul><?php
 	echo $after_widget;
+	} else {
+		$parentId = is_subpage($wp_query->post);
+		if ($parentId) {
+
+		echo $before_widget;
+		echo $before_title;
+		echo $options['title'];
+		echo $after_title;
+?>
+<ul>
+<?php
+		$output = wp_list_pages ('echo=0&child_of=' . $parentId. '&title_li=&depth='.$options['depth'].'&exclude='.$thePostID);
+		echo $output;
+?>
+</ul><?php
+		echo $after_widget;
+		}
+
 	}
-	
 	
 	?>
 <?php
 	
+}
+
+function is_subpage($currentpost) {
+	// load details about this page
+	if ( is_page() && $currentpost->post_parent ) { // test to see if the page has a parent
+		$parentID = $currentpost->post_parent; // the ID of the parent is this
+		return $parentID; // return the ID
+	} else { // there is no parent soÉ
+		return false; // Éthe answer to the question is false
+	}
 }
 
 function subPages_control(){
